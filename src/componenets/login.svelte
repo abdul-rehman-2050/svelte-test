@@ -1,6 +1,31 @@
-<script>
+<script lang="ts">
 	//import Fa from 'svelte-fa'
 	//import faGoogle from '@fortawesome/free-brands-svg-icons'
+
+	
+
+	import { supabase } from '../libs/supabase';
+
+	let loading = false;
+	let email = '';
+    let password= '';
+
+	const handleLogin = async () => {
+		try {
+			loading = true;
+			const {data, error } = await supabase.auth.signInWithPassword({ email,password });
+			if (error) throw error;
+            console.log(JSON.stringify(data))
+			
+		} catch (error) {
+			if (error instanceof Error) {
+				console.log(error.message);
+			}
+		} finally {
+			loading = false;
+
+		}
+	};
 </script>
 
 <!-- Main -->
@@ -11,14 +36,16 @@
 				<h1>Sign in</h1>
 				<h2>Login to get access of your store</h2>
 			</hgroup>
-			<form>
+            
+			<form on:submit|preventDefault="{handleLogin}">
 				<input
-					type="text"
+					type="email"
 					name="login"
 					placeholder="Login"
 					aria-label="Login"
 					autocomplete="nickname"
 					required
+                    bind:value="{email}"
 				/>
 				<input
 					type="password"
@@ -27,14 +54,16 @@
 					aria-label="Password"
 					autocomplete="current-password"
 					required
+                    bind:value="{password}"
 				/>
-				<button type="submit" class="primary">Login</button>
-				<button type="submit" class="secondary">Google</button>
+               
+				<button type="submit" class="primary" aria-live="polite" disabled="{loading}">Login</button>
+				<button  class="secondary">Google</button>
 			</form>
 		</div>
 		<div>
-			<div class="container">
-				<img src="draw2.svg" alt="" style="margin-top:2rem" />
+			<div>
+				<img src="draw2.svg" alt="" style="margin-top:6rem" />
 			</div>
 		</div>
 	</article>
@@ -45,6 +74,4 @@
 	img {
 		margin-top: auto;
 	}
-	
-	
 </style>
