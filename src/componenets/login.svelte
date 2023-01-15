@@ -6,6 +6,7 @@
 
 	import {supabaseClient} from '../lib/db'
 	import { goto } from '$app/navigation';
+	import {toastFailure} from '../toast-themes'
 
 	let loading = false;
 	let email = '';
@@ -16,11 +17,13 @@
 			loading = true;
 			const {data, error } = await supabaseClient.auth.signInWithPassword({ email,password });
 			if (error) throw error;
+
             console.log(JSON.stringify(data))
 			goto('/sdash')
 			
 		} catch (error) {
 			if (error instanceof Error) {
+				toastFailure(error.message)
 				console.log(error.message);
 			}
 		} finally {

@@ -3,7 +3,8 @@
     import { supabase } from "../libs/supabase";
     import Avatar from "./Avatar.svelte";
     
-    
+    import { toast } from '@zerodevx/svelte-toast'
+    import {toastSuccess} from '../toast-themes'
   
     export let session = ""
   
@@ -86,7 +87,7 @@
         {loading ? 'Saving ...' : 'Update profile'}
       </button>
     </div>
-    <button type="button" class="button block" on:click={() => supabase.auth.signOut()}>
+    <button type="button" class="button block" on:click={() =>{ supabase.auth.signOut(); toastSuccess('Succesfully Signed out!')}}>
       Sign Out
     </button>
   </form>
