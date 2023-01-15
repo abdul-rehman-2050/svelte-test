@@ -4,7 +4,8 @@
 
 	
 
-	import { supabase } from '../libs/supabase';
+	import {supabaseClient} from '../lib/db'
+	import { goto } from '$app/navigation';
 
 	let loading = false;
 	let email = '';
@@ -13,9 +14,10 @@
 	const handleLogin = async () => {
 		try {
 			loading = true;
-			const {data, error } = await supabase.auth.signInWithPassword({ email,password });
+			const {data, error } = await supabaseClient.auth.signInWithPassword({ email,password });
 			if (error) throw error;
             console.log(JSON.stringify(data))
+			goto('/sdash')
 			
 		} catch (error) {
 			if (error instanceof Error) {
@@ -63,7 +65,7 @@
 		</div>
 		<div>
 			<div>
-				<img src="draw2.svg" alt="" style="margin-top:6rem" />
+				<img src="draw2.svg" alt="" style="margin-top:2rem" />
 			</div>
 		</div>
 	</article>
@@ -71,7 +73,5 @@
 
 <!-- ./ Main -->
 <style>
-	img {
-		margin-top: auto;
-	}
+	
 </style>

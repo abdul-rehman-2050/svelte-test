@@ -1,22 +1,21 @@
 <script>
 	import '@picocss/pico/css/pico.min.css';
+	import { supabaseClient } from '$lib/db';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import '../app.css';
-
 	onMount(() => {
 		const {
 			data: { subscription }
-		} = supabase.auth.onAuthStateChange(() => {
+		} = supabaseClient.auth.onAuthStateChange((state) => {
+			console.log(`STATE CHANGED ${state}`)
 			invalidate('supabase:auth');
 		});
-
 		return () => {
 			subscription.unsubscribe();
 		};
 	});
 </script>
 
-<div class="" >
+<div class="">
 	<slot />
-  </div>
+</div>

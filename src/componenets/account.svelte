@@ -1,6 +1,9 @@
 <script>
     import { onMount } from "svelte";
     import { supabase } from "../libs/supabase";
+    import Avatar from "./Avatar.svelte";
+    
+    
   
     export let session = ""
   
@@ -86,5 +89,12 @@
     <button type="button" class="button block" on:click={() => supabase.auth.signOut()}>
       Sign Out
     </button>
+  </form>
+
+  <form use:getProfile class="form-widget" on:submit|preventDefault="{updateProfile}">
+    <!-- Add to body -->
+    <Avatar bind:url="{avatarUrl}" size="{10}" on:upload="{updateProfile}" />
+  
+    <!-- Other form elements -->
   </form>
   
