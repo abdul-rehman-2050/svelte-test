@@ -1,0 +1,30 @@
+@tailwind base;
+@layer base {
+	html {
+		@apply dark:text-white
+	  }
+	h1 {
+		@apply text-2xl dark:text-white;
+	}
+	h2 {
+		@apply text-xl dark:text-white;
+	}
+	h3 {
+		@apply text-lg dark:text-white;
+	}
+	p{
+		@apply dark:text-white;
+	}
+	a {
+		@apply text-blue-600 underline;
+	}
+	.btn-primary{
+		@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 
+	}
+	.btn-danger{
+		@apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 
+	}
+}
+
+@tailwind components;
+@tailwind utilities;

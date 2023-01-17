@@ -1,6 +1,6 @@
 <script>
 	//import '@picocss/pico/css/pico.min.css';
-	import "../app.css"
+	import '../app2.css';
 	import { supabaseClient } from '$lib/db';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -26,7 +26,9 @@
 	};
 </script>
 
-<div class="">
-	<slot />
-	<SvelteToast  />
+<div class="dark:bg-slate-900 h-screen w-full">
+	
+		<slot />
+		<SvelteToast />
+	
 </div>
