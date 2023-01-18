@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	//import Fa from 'svelte-fa'
 	//import faGoogle from '@fortawesome/free-brands-svg-icons'
 
@@ -16,6 +17,7 @@
 			if (error) throw error;
 
 			console.log(JSON.stringify(data));
+			goto('/sdash')
 		
 		} catch (error) {
 			if (error instanceof Error) {
@@ -53,7 +55,7 @@
 						id="email"
 						class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 						placeholder="name@company.com"
-						required=""
+						required
 						bind:value={email}
 					/>
 				</div>
@@ -67,7 +69,7 @@
 						id="password"
 						placeholder="••••••••"
 						class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-						required=""
+						required
 						bind:value={password}
 					/>
 				</div>

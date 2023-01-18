@@ -2,11 +2,17 @@
 	import { page } from '$app/stores';
 	import { supabaseClient } from '../../lib/db';
 	import { toastSuccess } from '../../toast-themes';
+	import { goto } from '$app/navigation';
+	import { invalidate } from '$app/navigation';
+	import { redirect } from '@sveltejs/kit';
+
+	
   
 	function signout () {
 		supabaseClient.auth.signOut();
 		toastSuccess('Succesfully Signed out!');
-    throw redirect(307, '/');
+		invalidate('supabase:auth');
+    	//goto('/')
 	
 	};
 </script>
