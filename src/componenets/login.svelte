@@ -1,24 +1,33 @@
-<script lang="ts">
-	import { goto } from '$app/navigation';
+<script>
+	import { applyAction, enhance } from '$app/forms';
 	//import Fa from 'svelte-fa'
 	//import faGoogle from '@fortawesome/free-brands-svg-icons'
 
-	import { supabaseClient } from '../lib/db';
-	import { toastFailure } from '../toast-themes';
+	import { toastFailure, toastSuccess } from '../toast-themes';
 
 	let loading = false;
 	let email = '';
 	let password = '';
 
-	const handleLogin = async () => {
+	const submitLogin = () => {
+		return async ({ result }) => {
+			await applyAction(result);
+			if (result.type === 'redirect') {
+				toastSuccess('Succesfully logged in!');
+			} else if (result.type === 'failure') {
+				toastFailure(result.data?.message);
+			}
+		};
+	};
+
+	/*const handleLogin = async () => {
 		try {
 			loading = true;
 			const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
 			if (error) throw error;
 
 			console.log(JSON.stringify(data));
-			goto('/sdash')
-		
+			goto('/sdash');
 		} catch (error) {
 			if (error instanceof Error) {
 				toastFailure(error.message);
@@ -28,6 +37,7 @@
 			loading = false;
 		}
 	};
+	*/
 </script>
 
 <!-- Main -->
@@ -43,7 +53,8 @@
 				Sign in to your store
 			</h1>
 
-			<form class="space-y-4 md:space-y-6" on:submit|preventDefault={handleLogin}>
+			<!-- form class="space-y-4 md:space-y-6" on:submit|preventDefault={handleLogin} -->
+			<form class="space-y-4 md:space-y-6" action="?/login" method="post" use:enhance={submitLogin}>
 				<div>
 					<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 						>Your email</label
@@ -75,7 +86,7 @@
 				</div>
 				<div class="flex items-center justify-end">
 					<a
-						href="#"
+						href="/"
 						class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
 						>Forgot password?</a
 					>

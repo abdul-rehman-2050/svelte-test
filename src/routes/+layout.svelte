@@ -2,7 +2,7 @@
 	//import '@picocss/pico/css/pico.min.css';
 	import '../app2.css';
 	import { supabaseClient } from '$lib/db';
-	import { invalidate } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
 	onMount(() => {
@@ -10,7 +10,8 @@
 			data: { subscription }
 		} = supabaseClient.auth.onAuthStateChange((state) => {
 			console.log(`STATE CHANGED ${state}`);
-			invalidate('supabase:auth');
+			//invalidate('supabase:auth');
+			invalidateAll();
 		});
 		return () => {
 			subscription.unsubscribe();
