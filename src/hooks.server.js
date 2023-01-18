@@ -24,11 +24,15 @@ export const handleAuth  = async ({ event, resolve }) => {
 export const handleAuthRouting = (async ({ event, resolve }) => {
     const url = new URL(event.request.url);
     const loggedIn = event.locals.session;
-    if (loggedIn && (url.pathname==='/login' || url.pathname==='/register')) {
+    if(loggedIn && event.locals.session.user.role=="store_owner" && (url.pathname!="/admin")){
+        url.pathname = '/admin'
+        return Response.redirect(url.toString(), 302)
+    }
+    else if (loggedIn && (url.pathname==='/login' || url.pathname==='/register')) {
         url.pathname = '/home'
         return Response.redirect(url.toString(), 302)
     }
-    else if (!loggedIn && (url.pathname==='/account' || url.pathname==='/sdash')) {
+    else if (!loggedIn && (url.pathname==='/account' || url.pathname==='/sdash'||url.pathname==='/admin')) {
         url.pathname = '/login'
         return Response.redirect(url.toString(), 302)
     }
