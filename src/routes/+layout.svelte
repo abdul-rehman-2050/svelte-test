@@ -26,7 +26,7 @@
 	};
 </script>
 
-<div class="dark:bg-slate-900 h-screen w-full">
+<div class="dark:bg-slate-900 min-h-screen min-w-screen flex">
 	
 		<slot />
 		<SvelteToast />

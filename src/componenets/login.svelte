@@ -3,7 +3,6 @@
 	//import faGoogle from '@fortawesome/free-brands-svg-icons'
 
 	import { supabaseClient } from '../lib/db';
-	import { goto } from '$app/navigation';
 	import { toastFailure } from '../toast-themes';
 
 	let loading = false;
@@ -17,7 +16,7 @@
 			if (error) throw error;
 
 			console.log(JSON.stringify(data));
-			goto('/sdash');
+		
 		} catch (error) {
 			if (error instanceof Error) {
 				toastFailure(error.message);
