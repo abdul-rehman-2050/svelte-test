@@ -1,7 +1,7 @@
 <script>
 	import { applyAction, enhance } from '$app/forms';
 	import { toastFailure, toastSuccess } from '../../toast-themes';
-    import { supabaseClient } from '../../lib/db';
+	import { supabaseClient } from '../../lib/db';
 	//import { redirect } from '@sveltejs/kit';
 
 	const submitLogout = () => {
@@ -15,9 +15,9 @@
 		};
 	};
 
-    const signout = async ()=>{
-        await supabaseClient.auth.signOut()
-    }
+	const signout = async () => {
+		await supabaseClient.auth.signOut();
+	};
 </script>
 
 <div class="antialiased bg-black w-full min-h-screen text-slate-300  ">
@@ -217,9 +217,8 @@
 			</div>
 			<p class="text-sm text-center text-gray-600">v1.0.0.3 | &copy; 2023 RepairB</p>
 		</div>
-        
+
 		<div id="content" class="bg-white/10 col-span-9 rounded-lg p-6">
-           
 			<div id="24h">
 				<h1 class="font-bold py-4 uppercase">Last 24h Statistics</h1>
 				<div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -245,24 +244,24 @@
 								<p class="text-indigo-300 text-sm font-medium uppercase leading-4">Users</p>
 								<p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
 									<span>5/6</span>
-                                    {#if false}
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											class="w-6 h-6"
-										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-											/>
-										</svg>
-									</span>
-                                    {/if}
+									{#if false}
+										<span>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.5"
+												stroke="currentColor"
+												class="w-6 h-6"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+												/>
+											</svg>
+										</span>
+									{/if}
 								</p>
 							</div>
 						</div>
@@ -331,211 +330,214 @@
 								<p class="text-blue-300 text-sm font-medium uppercase leading-4">Stores</p>
 								<p class="text-white font-bold text-2xl inline-flex items-center space-x-2">
 									<span>1/3</span>
-                                    {#if false}
-									<span>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke-width="1.5"
-											stroke="currentColor"
-											class="w-6 h-6"
-										>
-											<path
-												stroke-linecap="round"
-												stroke-linejoin="round"
-												d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
-											/>
-										</svg>
-									</span>
-                                    {/if}
+									{#if false}
+										<span>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke-width="1.5"
+												stroke="currentColor"
+												class="w-6 h-6"
+											>
+												<path
+													stroke-linecap="round"
+													stroke-linejoin="round"
+													d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
+												/>
+											</svg>
+										</span>
+									{/if}
 								</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-            {#if false}
-			<div id="last-incomes">
-				<h1 class="font-bold py-4 uppercase">Last 24h incomes</h1>
-				<div id="stats" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-					<div class="bg-black/60 to-white/5 rounded-lg">
-						<div class="flex flex-row items-center">
-							<div class="text-3xl p-4">💰</div>
-							<div class="p-2">
-								<p class="text-xl font-bold">348$</p>
-								<p class="text-gray-500 font-medium">Amber Gates</p>
-								<p class="text-gray-500 text-sm">24 Nov 2022</p>
+			{#if false}
+				<div id="last-incomes">
+					<h1 class="font-bold py-4 uppercase">Last 24h incomes</h1>
+					<div
+						id="stats"
+						class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+					>
+						<div class="bg-black/60 to-white/5 rounded-lg">
+							<div class="flex flex-row items-center">
+								<div class="text-3xl p-4">💰</div>
+								<div class="p-2">
+									<p class="text-xl font-bold">348$</p>
+									<p class="text-gray-500 font-medium">Amber Gates</p>
+									<p class="text-gray-500 text-sm">24 Nov 2022</p>
+								</div>
+							</div>
+							<div class="border-t border-white/5 p-4">
+								<a href="#" class="inline-flex space-x-2 items-center text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+										/>
+									</svg>
+									<span>Info</span>
+								</a>
 							</div>
 						</div>
-						<div class="border-t border-white/5 p-4">
-							<a href="#" class="inline-flex space-x-2 items-center text-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-									/>
-								</svg>
-								<span>Info</span>
-							</a>
-						</div>
-					</div>
-					<div class="bg-black/60 to-white/5 rounded-lg">
-						<div class="flex flex-row items-center">
-							<div class="text-3xl p-4">💰</div>
-							<div class="p-2">
-								<p class="text-xl font-bold">68$</p>
-								<p class="text-gray-500 font-medium">Maia Kipper</p>
-								<p class="text-gray-500 text-sm">23 Nov 2022</p>
+						<div class="bg-black/60 to-white/5 rounded-lg">
+							<div class="flex flex-row items-center">
+								<div class="text-3xl p-4">💰</div>
+								<div class="p-2">
+									<p class="text-xl font-bold">68$</p>
+									<p class="text-gray-500 font-medium">Maia Kipper</p>
+									<p class="text-gray-500 text-sm">23 Nov 2022</p>
+								</div>
+							</div>
+							<div class="border-t border-white/5 p-4">
+								<a href="#" class="inline-flex space-x-2 items-center text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+										/>
+									</svg>
+									<span>Info</span>
+								</a>
 							</div>
 						</div>
-						<div class="border-t border-white/5 p-4">
-							<a href="#" class="inline-flex space-x-2 items-center text-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-									/>
-								</svg>
-								<span>Info</span>
-							</a>
-						</div>
-					</div>
-					<div class="bg-black/60 to-white/5 rounded-lg">
-						<div class="flex flex-row items-center">
-							<div class="text-3xl p-4">💰</div>
-							<div class="p-2">
-								<p class="text-xl font-bold">12$</p>
-								<p class="text-gray-500 font-medium">Oprah Milles</p>
-								<p class="text-gray-500 text-sm">23 Nov 2022</p>
+						<div class="bg-black/60 to-white/5 rounded-lg">
+							<div class="flex flex-row items-center">
+								<div class="text-3xl p-4">💰</div>
+								<div class="p-2">
+									<p class="text-xl font-bold">12$</p>
+									<p class="text-gray-500 font-medium">Oprah Milles</p>
+									<p class="text-gray-500 text-sm">23 Nov 2022</p>
+								</div>
+							</div>
+							<div class="border-t border-white/5 p-4">
+								<a href="#" class="inline-flex space-x-2 items-center text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+										/>
+									</svg>
+									<span>Info</span>
+								</a>
 							</div>
 						</div>
-						<div class="border-t border-white/5 p-4">
-							<a href="#" class="inline-flex space-x-2 items-center text-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-									/>
-								</svg>
-								<span>Info</span>
-							</a>
-						</div>
-					</div>
-					<div class="bg-black/60 to-white/5 rounded-lg">
-						<div class="flex flex-row items-center">
-							<div class="text-3xl p-4">💰</div>
-							<div class="p-2">
-								<p class="text-xl font-bold">105$</p>
-								<p class="text-gray-500 font-medium">Jonny Nite</p>
-								<p class="text-gray-500 text-sm">23 Nov 2022</p>
+						<div class="bg-black/60 to-white/5 rounded-lg">
+							<div class="flex flex-row items-center">
+								<div class="text-3xl p-4">💰</div>
+								<div class="p-2">
+									<p class="text-xl font-bold">105$</p>
+									<p class="text-gray-500 font-medium">Jonny Nite</p>
+									<p class="text-gray-500 text-sm">23 Nov 2022</p>
+								</div>
+							</div>
+							<div class="border-t border-white/5 p-4">
+								<a href="#" class="inline-flex space-x-2 items-center text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+										/>
+									</svg>
+									<span>Info</span>
+								</a>
 							</div>
 						</div>
-						<div class="border-t border-white/5 p-4">
-							<a href="#" class="inline-flex space-x-2 items-center text-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-									/>
-								</svg>
-								<span>Info</span>
-							</a>
-						</div>
-					</div>
-					<div class="bg-black/60 to-white/5 rounded-lg">
-						<div class="flex flex-row items-center">
-							<div class="text-3xl p-4">💰</div>
-							<div class="p-2">
-								<p class="text-xl font-bold">52$</p>
-								<p class="text-gray-500 font-medium">Megane Baile</p>
-								<p class="text-gray-500 text-sm">22 Nov 2022</p>
+						<div class="bg-black/60 to-white/5 rounded-lg">
+							<div class="flex flex-row items-center">
+								<div class="text-3xl p-4">💰</div>
+								<div class="p-2">
+									<p class="text-xl font-bold">52$</p>
+									<p class="text-gray-500 font-medium">Megane Baile</p>
+									<p class="text-gray-500 text-sm">22 Nov 2022</p>
+								</div>
+							</div>
+							<div class="border-t border-white/5 p-4">
+								<a href="#" class="inline-flex space-x-2 items-center text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+										/>
+									</svg>
+									<span>Info</span>
+								</a>
 							</div>
 						</div>
-						<div class="border-t border-white/5 p-4">
-							<a href="#" class="inline-flex space-x-2 items-center text-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-									/>
-								</svg>
-								<span>Info</span>
-							</a>
-						</div>
-					</div>
-					<div class="bg-black/60 to-white/5 rounded-lg">
-						<div class="flex flex-row items-center">
-							<div class="text-3xl p-4">💰</div>
-							<div class="p-2">
-								<p class="text-xl font-bold">28$</p>
-								<p class="text-gray-500 font-medium">Tony Ankel</p>
-								<p class="text-gray-500 text-sm">22 Nov 2022</p>
+						<div class="bg-black/60 to-white/5 rounded-lg">
+							<div class="flex flex-row items-center">
+								<div class="text-3xl p-4">💰</div>
+								<div class="p-2">
+									<p class="text-xl font-bold">28$</p>
+									<p class="text-gray-500 font-medium">Tony Ankel</p>
+									<p class="text-gray-500 text-sm">22 Nov 2022</p>
+								</div>
 							</div>
-						</div>
-						<div class="border-t border-white/5 p-4">
-							<a href="#" class="inline-flex space-x-2 items-center text-center">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke-width="1.5"
-									stroke="currentColor"
-									class="w-6 h-6"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
-									/>
-								</svg>
-								<span>Info</span>
-							</a>
+							<div class="border-t border-white/5 p-4">
+								<a href="#" class="inline-flex space-x-2 items-center text-center">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke-width="1.5"
+										stroke="currentColor"
+										class="w-6 h-6"
+									>
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
+										/>
+									</svg>
+									<span>Info</span>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-            {/if}
+			{/if}
 			<div id="last-users">
 				<h1 class="font-bold py-4 uppercase">Last 24h users</h1>
 				<div class="overflow-x-scroll">
@@ -550,13 +552,7 @@
 						<tr class="border-b border-gray-700">
 							<td class="py-3 px-2 font-bold">
 								<div class="inline-flex space-x-3 items-center">
-									<span
-										><img
-											class="rounded-full w-8 h-8"
-											src="https://images.generated.photos/tGiLEDiAbS6NdHAXAjCfpKoW05x2nq70NGmxjxzT5aU/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/OTM4ODM1LmpwZw.jpg"
-											alt=""
-										/></span
-									>
+									
 									<span>Thai Mei</span>
 								</div>
 							</td>
@@ -619,13 +615,7 @@
 						<tr class="border-b border-gray-700">
 							<td class="py-3 px-2 font-bold">
 								<div class="inline-flex space-x-3 items-center">
-									<span
-										><img
-											class="rounded-full w-8 h-8"
-											src="https://images.generated.photos/tGiLEDiAbS6NdHAXAjCfpKoW05x2nq70NGmxjxzT5aU/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/OTM4ODM1LmpwZw.jpg"
-											alt=""
-										/></span
-									>
+									
 									<span>Thai Mei</span>
 								</div>
 							</td>
@@ -688,13 +678,15 @@
 						<tr class="border-b border-gray-700">
 							<td class="py-3 px-2 font-bold">
 								<div class="inline-flex space-x-3 items-center">
-									<span
-										><img
-											class="rounded-full w-8 h-8"
-											src="https://images.generated.photos/tGiLEDiAbS6NdHAXAjCfpKoW05x2nq70NGmxjxzT5aU/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/OTM4ODM1LmpwZw.jpg"
-											alt=""
-										/></span
-									>
+									{#if false}
+										<span
+											><img
+												class="rounded-full w-8 h-8"
+												src="https://images.generated.photos/tGiLEDiAbS6NdHAXAjCfpKoW05x2nq70NGmxjxzT5aU/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/OTM4ODM1LmpwZw.jpg"
+												alt=""
+											/></span
+										>
+									{/if}
 									<span>Thai Mei</span>
 								</div>
 							</td>
@@ -757,13 +749,15 @@
 						<tr class="border-b border-gray-700">
 							<td class="py-3 px-2 font-bold">
 								<div class="inline-flex space-x-3 items-center">
-									<span
-										><img
-											class="rounded-full w-8 h-8"
-											src="https://images.generated.photos/niCVbIBAm4hahzwS83HoEtcVEIactkKohOzgXWYY4lM/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NTk4ODczLmpwZw.jpg"
-											alt=""
-										/></span
-									>
+									{#if false}
+										<span
+											><img
+												class="rounded-full w-8 h-8"
+												src="https://images.generated.photos/niCVbIBAm4hahzwS83HoEtcVEIactkKohOzgXWYY4lM/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NTk4ODczLmpwZw.jpg"
+												alt=""
+											/></span
+										>
+									{/if}
 									<span>Marquez Spineli</span>
 								</div>
 							</td>
@@ -826,13 +820,7 @@
 						<tr class="border-b border-gray-800">
 							<td class="py-3 px-2 font-bold">
 								<div class="inline-flex space-x-3 items-center">
-									<span
-										><img
-											class="rounded-full w-8 h-8"
-											src="https://images.generated.photos/f_xU7q780YXiKG7IwKVV05eU6Sj2nIodEkN1S8GyM2M/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NDk2MTc4LmpwZw.jpg"
-											alt=""
-										/></span
-									>
+									
 									<span>Mark Spike</span>
 								</div>
 							</td>
