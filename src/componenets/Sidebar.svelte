@@ -2,6 +2,7 @@
     import { applyAction, enhance } from '$app/forms';
 	import { toastFailure, toastSuccess } from '../toast-themes';
 	import { supabaseClient } from '../lib/db';
+    import { page } from '$app/stores';
 	//import { redirect } from '@sveltejs/kit';
 
 	const submitLogout = () => {
@@ -17,18 +18,30 @@
 
 	const signout = async () => {
 		await supabaseClient.auth.signOut();
+        toastSuccess("Successfully Logged out.")
 	};
+
+
+    let user_meta = $page.data.session.user.user_metadata;
+    const userName = user_meta.full_name;
+    const storeName = user_meta.store_name;
+   /* 
+   const isActive = user_meta.id_active;
+    
+    const storesLimit = user_meta.store_limit;
+    const subUsersLimit = user_meta.sub_users_limit;
+    */
 </script>
 
 
 
-<div id="menu" class="bg-white/10  rounded-lg p-4 ">
+<div id="menu" class="  rounded-lg p-4 ">
     <h1
         class="font-bold text-lg lg:text-3xl bg-gradient-to-br from-white via-white/50 to-transparent bg-clip-text text-transparent"
     >
         Dashboard<span class="text-indigo-400">.</span>
     </h1>
-    <p class="text-slate-400 text-sm mb-2">Welcome back,</p>
+    <p class="text-slate-400 text-sm mb-2">Welcome to {storeName}</p>
     <a
         href="#"
         class="flex flex-col space-y-2 md:space-y-0 md:flex-row mb-5 items-center md:space-x-2 hover:bg-white/10 group transition duration-150 ease-linear rounded-lg group w-full py-3 px-2"
@@ -41,8 +54,11 @@
             />
         </div>
         <div>
-            <p class="font-medium group-hover:text-indigo-400 leading-4">Jim Smith</p>
-            <span class="text-xs text-slate-400">Pantazi LLC</span>
+            <p class="font-medium group-hover:text-indigo-400 leading-4">
+            {userName}
+            
+            </p>
+            <span class="text-xs text-slate-400">{$page.data.session.user.email}</span>
         </div>
     </a>
     <hr class="my-2 border-slate-700" />
