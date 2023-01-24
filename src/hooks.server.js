@@ -24,7 +24,8 @@ export const handleAuth  = async ({ event, resolve }) => {
 export const handleAuthRouting = (async ({ event, resolve }) => {
     const url = new URL(event.request.url);
     const loggedIn = event.locals.session;
-    if(loggedIn && event.locals.session.user.role=="store_owner" && (url.pathname!="/admin")){
+    //const cur_url = url.pathname.substr(url.pathname.lastIndexOf('/'))
+    if(loggedIn && event.locals.session.user.role=="store_owner" && (url.pathname.indexOf("/admin")<0)){
         url.pathname = '/admin'
         return Response.redirect(url.toString(), 302)
     }

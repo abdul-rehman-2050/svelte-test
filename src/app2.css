@@ -1,8 +1,8 @@
 @tailwind base;
 @layer base {
 	html {
-		@apply dark:text-white
-	  }
+		@apply dark:text-white;
+	}
 	h1 {
 		@apply text-2xl dark:text-white;
 	}
@@ -12,18 +12,25 @@
 	h3 {
 		@apply text-lg dark:text-white;
 	}
-	p{
+	p {
 		@apply dark:text-white;
 	}
-	
-	.input-form{
-		@apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+
+	.a-tag {
+		@apply underline text-blue-600 hover:text-blue-800 ;
 	}
-	.btn-primary{
-		@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 
+	.a-tag-visited{
+		@apply visited:text-purple-600;
 	}
-	.btn-danger{
-		@apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 
+
+	.input-form {
+		@apply bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+	}
+	.btn-primary {
+		@apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4;
+	}
+	.btn-danger {
+		@apply bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4;
 	}
 }
 

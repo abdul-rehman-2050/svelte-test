@@ -84,10 +84,10 @@
 						bind:value={password}
 					/>
 				</div>
-				<div class="flex items-center justify-end">
+				<div class="flex justify-end">
 					<a
 						href="/"
-						class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+						class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
 						>Forgot password?</a
 					>
 				</div>
@@ -99,7 +99,7 @@
 				<p class="text-sm font-light text-gray-500 dark:text-gray-400">
 					Don’t have an account yet? <a
 						href="/request"
-						class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+						class="font-medium text-primary-600 hover:underline dark:text-blue-500"
 						>Request a Demo</a
 					>
 				</p>
