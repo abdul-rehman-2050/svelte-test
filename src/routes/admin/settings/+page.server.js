@@ -1,4 +1,4 @@
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from "@sveltejs/kit";
 
 
 export const actions = {
@@ -8,8 +8,7 @@ export const actions = {
       const password = data.get('password');
       const confirmPassword = data.get('confirm_password');
       if ( password !== confirmPassword) {
-        return fail(400, { message:"Password do not match"
-        , incorrect: true });
+        return fail(400, {message: "Password did not matched"});
         }
 
        /* const { error: err} = await locals.sb.auth.updateUser({
@@ -18,14 +17,11 @@ export const actions = {
         });
         */
 
-        const { data:dt, error:err } = await locals.sb.auth.updateUser({password: password})
+        const {  error:err } = await locals.sb.auth.updateUser({password: password})
         if (err) {
             return fail(400, {message: err.message});
         }
-        else{
-            console.log(dt)
-        }
-      return { success: true };
+        throw redirect(303, '/sdash')
     },
    
   };

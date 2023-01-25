@@ -1,16 +1,19 @@
 <script>
-     /** @type {import('./$types').ActionData} */  
-     import { toastFailure, toastSuccess } from '../../../toast-themes';
-     export let form;
+	import { applyAction, enhance } from '$app/forms';
+	/** @type {import('./$types').ActionData} */
+	import { toastFailure, toastSuccess } from '../../../toast-themes';
 
-     if(form?.incorrect===true){
-        toastFailure('Server Error:'+form?.message)
-     }
-     if(form?.success===true){
-        toastSuccess('Password matched')
-     }
+	const submitPasswordChange = () => {
+		return async ({ result }) => {
+			await applyAction(result);
+			if (result.type === 'redirect') {
+				toastSuccess('Password Changed Successfully');
+			} else if (result.type === 'failure') {
+				toastFailure(result.data?.message);
+			}
+		};
+	};
 </script>
-
 
 <section class="w-full h-screen ">
 	<div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -22,8 +25,12 @@
 			>
 				Change Password
 			</h2>
-			<form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" method="POST" action="?/changePassword">
-                
+			<form
+				class="mt-4 space-y-4 lg:mt-5 md:space-y-5"
+				method="POST"
+				action="?/changePassword"
+				use:enhance={submitPasswordChange}
+			>
 				<div>
 					<label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
 						>New Password</label
@@ -52,7 +59,7 @@
 						required
 					/>
 				</div>
-                <div>{#if form?.incorrect}<p class="text-red-400">{form?.message}</p>{/if}</div>
+				
 				<button type="submit" class="w-full btn-primary mt-5">Reset passwod</button>
 			</form>
 		</div>
