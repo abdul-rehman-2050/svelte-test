@@ -1,5 +1,23 @@
 <script>
+	import { applyAction, enhance } from '$app/forms';
+	//import Fa from 'svelte-fa'
+	//import faGoogle from '@fortawesome/free-brands-svg-icons'
+
+	import { toastFailure, toastSuccess } from '../toast-themes';
+	let isSubmitting = false
 	
+	const submitEmployee = () => {
+		isSubmitting =true;
+		return async ({ result }) => {
+			await applyAction(result);
+			if (result.type === 'redirect') {
+				toastSuccess('Succesfully Added!');
+			} else if (result.type === 'failure') {
+				toastFailure(result.data?.message);
+			}
+			isSubmitting = false;
+		};
+	};
 </script>
 
 <div class=" m-auto">
@@ -8,7 +26,7 @@
 			<h1 class="h1-form">Add Employee</h1>
 		</div>
 		<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700" />
-		<form method="POST" action="/admin/emp?/addemp">
+		<form method="POST" action="/admin/emp?/addemp" use:enhance={submitEmployee}>
 			<div class="form-row-3">
 				<div class="mb-6">
 					<label for="fullname" class="label-form">Full Name</label>
@@ -55,10 +73,12 @@
 					<label for="email" class="label-form">Email</label>
 					<input
 						type="email"
-						class="input-form2"
+						class="input-form2 invalid:border-pink-500 invalid:text-red-100
+						focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
 						name="email"
 						id="email"
 						placeholder="Email address"
+						required
 					/>
 				</div>
 				<div class="mb-6">
@@ -97,7 +117,12 @@
         active:bg-blue-800 active:shadow-lg
         transition
         duration-150
-        ease-in-out">Add New User</button
+        ease-in-out
+		disabled:bg-slate-500 disabled:text-slate-50 disabled:border-slate-200 disabled:shadow-none
+      
+		"
+		disabled={isSubmitting}
+		>Add New User</button
 			>
 		</form>
 	</div>

@@ -1,6 +1,7 @@
 <script>
 	import AddEmployeeCard from "../../../componenets/AddEmployeeCard.svelte";
 
+
 </script>
 <div class="min-w-full">
 	<AddEmployeeCard/>
