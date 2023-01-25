@@ -1,22 +1,44 @@
 /** @type {import('./$types').Actions} */
-export const actions = {
+import { fail,redirect } from '@sveltejs/kit';
 
-    addemp: async ({request}) => {
+
+
+export const actions = {
+    addemp: async ({request,locals}) => {
         const data = await request.formData();        
         const fullName = data.get('fullname');
         const userGroup = data.get('usergroup');
-        const storeList = data.get('storeslist');
+        const storeID = data.get('storeslist');
         const email = data.get('email');
         const password = data.get('password');
         console.log('name:',fullName);
         console.log('group:',userGroup);
-        console.log('storesList:',storeList);
+        console.log('storesList:',storeID);
         console.log('email:',email);
-        console.log('password:',password);
-
-
-
+        console.log('password:',password);     
         
+        
+        const {data:dt,error:err } = await locals.sb.auth.admin.createUser({
+          email: email,
+          password: password,
+          role:"employee",
+          email_confirm: true,
+
+          user_metadata: { 
+            name: fullName,
+            owner: locals.session.user.id,
+            group: userGroup,
+            sotre: storeID,            
+           }
+        })
+        if (err) {
+          return fail(400, {message: err.message});
+      }
+      console.log(dt)
+      
+      throw redirect(303, '/sdash')
   },
+
+
 	
 };
