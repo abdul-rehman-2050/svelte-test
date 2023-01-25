@@ -18,6 +18,8 @@
 			isSubmitting = false;
 		};
 	};
+	//export let users;
+
 </script>
 
 <div class=" m-auto">
@@ -46,8 +48,8 @@
 						id="usertype"
 						class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 					>
-						<option value="user" selected>User</option>
-						<option value="admin">Administrator</option>
+						<option value="User" selected>User</option>
+						<option value="Administrator">Administrator</option>
 					</select>
 				</div>
                 <div class="mb-6">

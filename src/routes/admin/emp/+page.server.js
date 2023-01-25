@@ -1,9 +1,40 @@
-/** @type {import('./$types').Actions} */
+
 import { fail,redirect } from '@sveltejs/kit';
+/** @type {import('./$types').PageLoad} */
+export async function load({ locals }) {
+  console.log('loading employees...')
+  const usersLimit = locals.session?.user?.user_metadata.sub_users_limit;
+  const { data: { users }, error } = await locals.sb.auth.admin.listUsers();
+        if(error){
+          return fail(400, {message: error.message});
+        }
+        var myEmployees = users.filter((user)=>{
+          return (user.role==="employee") && (user.user_metadata.owner===locals.session.user.id) 
+      } );
+  const cLength = myEmployees.length;
+  return {
+    users: {
+      limit: usersLimit,
+      createdLength: cLength, 
+      allEmployees:myEmployees,
+
+    }
+  };
+}
 
 
-
+/** @type {import('./$types').Actions} */
 export const actions = {
+  delluser: async ({request,locals}) => {
+    const data = await request.formData();    
+    const userID = data.get('userid'); 
+    const { rData, error } = await locals.sb.auth.admin.deleteUser(userID);
+        if(error){
+          return fail(400, {message: error.message});
+    }   
+    console.log(rData)
+    throw redirect(303, '/admin/emp')
+  },
     addemp: async ({request,locals}) => {
         const data = await request.formData();        
         const fullName = data.get('fullname');
@@ -56,7 +87,7 @@ export const actions = {
       }
       console.log(dt)
       
-      throw redirect(303, '/sdash')
+      throw redirect(303, '/admin')
   },
 
 
