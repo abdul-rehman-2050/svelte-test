@@ -3,14 +3,30 @@
 	import BucketSvg from '../../../svgs/BucketSVG.svelte';
 	import EditSvg from '../../../svgs/EditSVG.svelte';
 	import { applyAction, enhance } from '$app/forms';
+	import { Button, Modal,TextInput,
+	PasswordInput,
+	} from 'carbon-components-svelte';
+	import {
+    Form,
+    FormGroup,
+    Checkbox,
+    RadioButtonGroup,
+    RadioButton,
+    Select,
+    SelectItem,
+    
+  } from "carbon-components-svelte";
 	//import Fa from 'svelte-fa'
 	//import faGoogle from '@fortawesome/free-brands-svg-icons'
 
 	import { toastFailure, toastSuccess } from '../../../toast-themes';
-	let isSubmitting = false
+	import TestForm from '../../../componenets/MyForms/TestForm.svelte';
 	
+	let isSubmitting = false;
+	let showModal = false;
+
 	const dellEmployee = () => {
-		isSubmitting =true;
+		isSubmitting = true;
 		return async ({ result }) => {
 			await applyAction(result);
 			if (result.type === 'redirect') {
@@ -21,12 +37,32 @@
 			isSubmitting = false;
 		};
 	};
+
 	export let data;
+	let open = false;
 </script>
 
 <div class="min-w-full">
+	<div>
+		<Button on:click={() => (open = true)}>Create database</Button>
+		
+<Modal
+  bind:open
+  modalHeading="Update User"
+  primaryButtonText="Update"
+  secondaryButtonText="Cancel"
+  on:click:button--secondary={() => (open = false)}
+  on:open
+  on:close
+  on:submit
+>
+<TestForm/>
+</Modal>
+	</div>
 	{#if data.users.limit > data.users.createdLength}
+	
 		<AddEmployeeCard />
+		
 	{:else}
 		<div role="alert" class="mb-3">
 			<div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">Limit Reached</div>
@@ -39,7 +75,7 @@
 	{/if}
 
 	<div id="last-users">
-		<h1 class="font-bold py-4 uppercase">Employees List</h1>
+		<h1 class="font-bold py-4 uppercase">Employees List2</h1>
 		<div class="overflow-x-scroll">
 			<table class="w-full whitespace-nowrap">
 				<thead class="bg-black/60">

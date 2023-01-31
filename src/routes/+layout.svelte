@@ -5,6 +5,7 @@
 	import { invalidateAll } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import { SvelteToast } from '@zerodevx/svelte-toast';
+	import "carbon-components-svelte/css/g100.css";
 	onMount(() => {
 		const {
 			data: { subscription }
@@ -27,7 +28,7 @@
 	};
 </script>
 
-<div class="dark:bg-slate-900 min-h-screen min-w-screen flex">
+<div class=" dark dark:bg-slate-900 min-h-screen min-w-screen flex">
 	
 		<slot />
 		<SvelteToast />
