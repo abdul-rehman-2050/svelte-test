@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import "../../app2.css"
 </script>
 
 <main class="flex m-auto ">

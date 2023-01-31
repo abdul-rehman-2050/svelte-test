@@ -1,6 +1,6 @@
 <script>
 import { page } from '$app/stores';
-
+import "../app2.css"
 
     let user_meta = $page.data.session.user.user_metadata;
     const userName = user_meta.full_name;
@@ -151,3 +151,7 @@ import { page } from '$app/stores';
             </div>
         </div>
     </div>
+
+    <style>
+
+    </style>
