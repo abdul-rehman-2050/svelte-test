@@ -3,7 +3,6 @@
 	
 	import Login from "../../componenets/login.svelte";
 	
-
 </script>
 
 
